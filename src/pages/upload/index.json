@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Uploader",
+  "usingComponents": {
+    "uploader": "@tiki.vn/tini-ui/es/uploader/index"
+  }
+}

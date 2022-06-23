@@ -1,0 +1,5 @@
+<view style="margin: 15px;display: flex; flex-direction: column;">
+  <textarea style="width: 90%" onInput="onInput"/>
+    <button onTap="onPost" type="outline" style="margin-top: 10px;" >Post</button>
+</view>
+<outfit-items current="{{0}}"" outfit="{{outfit}}"/>

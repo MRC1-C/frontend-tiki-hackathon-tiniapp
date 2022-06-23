@@ -1,0 +1,22 @@
+.uploadItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid gray;
+  padding: 10px 0;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.wrapper {
+  margin: 10px 15px;
+}
+.upload {
+  justify-content: center;
+  margin: 10px 0;
+}
+
+
+.styleimage{
+  width: 20px;
+  height: 20px;
+}

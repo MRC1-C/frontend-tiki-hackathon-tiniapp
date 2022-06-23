@@ -1,0 +1,68 @@
+{
+  "window": {
+    "defaultTitle": "Tini shop"
+  },
+  "pages": [
+    "pages/home/index",
+    "pages/cart/index",
+    "pages/account/index",
+    "pages/detail/index",
+    "pages/order-detail/index",
+    "pages/order-management/index",
+    "pages/tracking-detail/index",
+    "pages/my-coupon/index",
+    "pages/my-point/index",
+    "pages/search/index",
+    "pages/category/index",
+    "pages/category-detail/index",
+    "pages/upload/index",
+    "pages/my-feature/index",
+    "pages/my-outfit/index",
+    "pages/outfit-detail/index",
+    "pages/upload-outfit/index",
+    "pages/outfit-social/index",
+    "pages/fashion-review/index"
+  ],
+  "tabBar": {
+    "borderTopActiveColor": "#1A94FF",
+    "borderTopColor": "#EBEBF0",
+    "items": [
+      {
+        "name": "Home",
+        "pagePath": "pages/home/index",
+        "icon": "/assets/icons/tab-home.png",
+        "activeIcon": "assets/icons/tab-home-active.png"
+      },
+      {
+        "name": "Category",
+        "pagePath": "pages/category/index",
+        "icon": "/assets/icons/tab-category.png",
+        "activeIcon": "assets/icons/tab-category-active.png"
+      },
+      {
+        "name": "Search",
+        "pagePath": "pages/search/index",
+        "icon": "/assets/icons/tab-search.png",
+        "activeIcon": "assets/icons/tab-search-active.png"
+      },
+      {
+        "name": "My Account",
+        "pagePath": "pages/account/index",
+        "icon": "/assets/icons/tab-account.png",
+        "activeIcon": "assets/icons/tab-account-active.png"
+      },
+      {
+        "name": "My Feature",
+        "pagePath": "pages/my-feature/index",
+        "icon": "https://cdn-icons-png.flaticon.com/512/2620/2620383.png",
+        "activeIcon": "https://cdn-icons-png.flaticon.com/512/2620/2620383.png"
+      },
+      {
+        "name": "Fashion Social",
+        "pagePath": "pages/outfit-social/index",
+        "icon": "https://icons-for-free.com/download-icon-media+myspace+network+social+icon-1320193949949465092_512.png",
+        "activeIcon": "https://icons-for-free.com/download-icon-media+myspace+network+social+icon-1320193949949465092_512.png"
+      }
+    ]
+  }
+}

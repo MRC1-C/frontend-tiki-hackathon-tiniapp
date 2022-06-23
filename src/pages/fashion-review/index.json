@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "My Outfit",
+  "usingComponents": {
+    "outfit-items": "components/outfit-items/index"
+  }
+}

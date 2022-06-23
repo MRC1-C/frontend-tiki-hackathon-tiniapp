@@ -1,0 +1,51 @@
+.avatar {
+  width: 72px;
+  height: 72px;
+}
+
+.my-account {
+  height: 100vh;
+  padding-top: calc(var(--safe-area-inset-top) + 16px);
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+
+.version {
+  flex: 1;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}
+.block {
+  background-color: white;
+  margin: 0 0;
+  padding: 5px 16px;
+  border-radius: var(--border-radius-rounded-4px);
+}
+
+.item {
+  margin: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.item input {
+  margin-left: 16px;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.header {
+  display: flex;
+  font-weight: 600;
+  font-size: 12px;
+}

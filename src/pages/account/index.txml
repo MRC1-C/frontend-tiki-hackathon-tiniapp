@@ -1,0 +1,131 @@
+<view class="my-account">
+  <view>
+    <view tiki:if="{{isLoading}}" class="flex flex-col items-center">
+      <view 
+        class="skeleton avatar skeleton-button-shape-circle">
+      </view>
+      <view 
+        class="mt-2x-small skeleton skeleton-font-medium skeleton-25-width">
+      </view>
+    </view>
+
+    <view tiki:else >
+      <view tiki:if="{{!isLogin}}" class="flex flex-col items-center">
+        <image 
+          class="block avatar" 
+          mode="widthFix" 
+          src="{{user.avt}}"/>
+          <view style="margin-top: 5px;display: flex">
+            <button onTap="handleShowModal" style="margin-bottom: 10px;" type="ghost">Đăng nhập</button>
+            <button onTap="handleShowModal1" type="ghost">Đăng ký</button>
+          </view>
+      </view>
+      <view tiki:else class="flex flex-col items-center">
+        <image 
+        style="width: 72px;height: 72px;border-radius: 50%;"
+        mode="aspectFill"
+        src="https://media-cdn-v2.laodong.vn/storage/newsportal/2021/3/19/890700/Rose-Blackpink-Sinh-.jpg"/>
+        <view class="mt-2x-small text-medium-2x-small font-bold" style="display: flex;align-items: center;flex-direction: column" >
+          <text>Rose</text>
+          <button type="outline" onTap="onSignout">Đăng xuất</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="px-medium mt-medium">
+      <coupon-n-point user="{{user}}" isLoading="{{isLoading}}"/>
+    </view>
+    
+    <view class="mt-medium px-medium">
+      <my-orders numOrders="{{numOrders}}" isLoading="{{isLoading}}"/>
+    </view>
+
+    <view class="mt-medium px-medium">
+      <view class="bg-white px-medium py-2x-small radius-8px">
+        <view class="flex justify-between items-center">
+          <view class="flex">
+            <image class="block size-40" src="/assets/icons/ic-support.svg" />
+            <view class="ml-2x-small">
+              <view class="font-bold mb-4x-small">Support</view>
+              <view class="text-small text-gray60">Call or chat with us</view>
+            </view>
+          </view>
+          <icon type="arrow_right" color="#808089"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="version mt-medium w-full flex flex-col items-center">
+    <view class="mb-medium text-small text-blue text-underline font-medium">Terms and Conditions</view>
+    <view class="text-x-small text-gray60">version: 1.0.0</view>
+  </view>
+  
+</view>
+
+<modal
+  show="{{show}}"
+  onMaskClick="handleHideModal"
+>
+  <view>
+    <view slot="header" style="font-weight: 600;">Đăng nhập</view>
+    <form onSubmit="onSubmit" onReset="onReset">
+      <view class="block">
+        <label>
+          <text class="header">Username</text>
+          <input name="username"/>
+        </label>
+      </view>
+      <view class="block">
+        <label>
+          <text class="header">Password</text>
+          <input name="password" password/>
+        </label>
+      </view>
+      <view class="block buttons">
+        <button type="outline" onTap="handleHideModal">Cancel</button>
+        <button form-type="submit">Submit</button>
+      </view>
+    </form>
+  </view>
+</modal>
+
+
+<modal
+  show="{{show1}}"
+  onMaskClick="handleHideModal1"
+>
+  <view>
+    <view slot="header" style="font-weight: 600;">Đăng ký</view>
+    <form onSubmit="onSubmit1">
+      <view class="block">
+        <label>
+          <text class="header">Username</text>
+          <input name="username"/>
+        </label>
+      </view>
+      <view class="block">
+        <label>
+          <text class="header">Email</text>
+          <input name="email"/>
+        </label>
+      </view>
+      <view class="block">
+        <label>
+          <text class="header">Password</text>
+          <input name="password" password/>
+        </label>
+      </view>
+      <view class="block">
+        <label>
+          <text class="header">Verifine Password</text>
+          <input name="re_password" password/>
+        </label>
+      </view>
+      <view class="block buttons">
+        <button type="outline" onTap="handleHideModal1">Cancel</button>
+        <button form-type="submit" >Submit</button>
+      </view>
+    </form>
+  </view>
+</modal>

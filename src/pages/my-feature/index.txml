@@ -1,0 +1,74 @@
+<view>
+  <view class="bg-white px-medium py-2x-small radius-8px" style="margin-top: 10px;" onTap="onUpload">
+    <view class="flex justify-between items-center">
+      <view class="flex">
+        <image class="block size-40" src="https://icon-library.com/images/suggestion-icon/suggestion-icon-3.jpg" />
+        <view class="ml-2x-small">
+          <view class="font-bold mb-4x-small">Hôm nay mặc gì?</view>
+          <view class="text-small text-gray60">What to wear today</view>
+        </view>
+      </view>
+      <icon type="arrow_right" color="#808089"/>
+    </view>
+  </view>
+  <view class="bg-white px-medium py-2x-small radius-8px" style="margin-top: 10px;" onTap="onServeGift">
+    <view class="flex justify-between items-center">
+      <view class="flex">
+        <image class="block size-40" src="https://cdn-icons-png.flaticon.com/512/726/726461.png" />
+        <view class="ml-2x-small">
+          <view class="font-bold mb-4x-small">Tặng quà</view>
+          <view class="text-small text-gray60">Serve Gift</view>
+        </view>
+      </view>
+      <icon type="arrow_right" color="#808089"/>
+    </view>
+  </view>
+  <view class="bg-white px-medium py-2x-small radius-8px" style="margin-top: 10px;" onTap="onSearch">
+    <view class="flex justify-between items-center">
+      <view class="flex">
+        <image class="block size-40" src="https://www.iconpacks.net/icons/2/free-search-icon-2911-thumb.png" />
+        <view class="ml-2x-small">
+          <view class="font-bold mb-4x-small">Tìm kiếm bằng hình ảnh</view>
+          <view class="text-small text-gray60">Image Searching</view>
+        </view>
+      </view>
+      <icon type="arrow_right" color="#808089"/>
+    </view>
+  </view>
+  <view class="bg-white px-medium py-2x-small radius-8px" style="margin-top: 10px;" onTap="onUpload">
+    <view class="flex justify-between items-center">
+      <view class="flex">
+        <image class="block size-40" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjuGl89N_I0gTrM8Mdgev7aIOSXsDdpo19A&usqp=CAU" />
+        <view class="ml-2x-small">
+          <view class="font-bold mb-4x-small">Khai phá giỏ hàng</view>
+          <view class="text-small text-gray60">Cart Exploration</view>
+        </view>
+      </view>
+      <icon type="arrow_right" color="#808089"/>
+    </view>
+  </view>
+  <view class="bg-white px-medium py-2x-small radius-8px" style="margin-top: 10px;" onTap="onUpload">
+    <view class="flex justify-between items-center">
+      <view class="flex">
+        <image class="block size-40" src="https://icons.veryicon.com/png/o/miscellaneous/small-green-icon/history-36.png" />
+        <view class="ml-2x-small">
+          <view class="font-bold mb-4x-small">Lịch sử mua hàng</view>
+          <view class="text-small text-gray60">History</view>
+        </view>
+      </view>
+      <icon type="arrow_right" color="#808089"/>
+    </view>
+  </view>
+  <view class="bg-white px-medium py-2x-small radius-8px" style="margin-top: 10px;" onTap="onMyOutfit">
+    <view class="flex justify-between items-center">
+      <view class="flex">
+        <image class="block size-40" src="https://img.icons8.com/plasticine/2x/formal-outfit.png" />
+        <view class="ml-2x-small">
+          <view class="font-bold mb-4x-small">Bộ đồ của tôi</view>
+          <view class="text-small text-gray60">My Outfit</view>
+        </view>
+      </view>
+      <icon type="arrow_right" color="#808089"/>
+    </view>
+  </view>
+</view>

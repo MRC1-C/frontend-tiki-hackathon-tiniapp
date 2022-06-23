@@ -1,0 +1,9 @@
+{
+  "transparentTitle": "always",
+  "defaultTitle": "",
+  "usingComponents": {
+    "coupon-n-point": "/components/coupon-n-point/index",
+    "my-orders": "/components/my-orders/index",
+    "modal": "@tiki.vn/tini-ui/es/modal/index"
+  }
+}

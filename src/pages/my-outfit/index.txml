@@ -1,0 +1,9 @@
+<view tiki:if="{{isLoading}}">Loading...</view>
+<view tiki:else>
+  <scroll-view scroll-y="{{true}}">
+    <view style="display: flex;margin: 5px 15px 0 15px;">
+      <button onTap="onUploadOutfit" style="border-radius: 10px;" type="outline">Post Outfit</button>
+    </view>
+    <outfit-items current="{{0}}"" outfit="{{outfit}}"/>
+  </scroll-view>
+</view>
