@@ -1,0 +1,43 @@
+<view style="background-color: white;margin: 5px 0">
+  <view style="display: flex; justify-content: space-between">
+    <view style="display: flex;margin-bottom: 10px;margin-top: 10px;align-items: center;margin-left: 15px">
+      <image 
+      style="width:50px;height: 50px;border-radius: 50%;margin-right: 10px;"
+      mode="aspectFill"
+      src="{{imgs}}"/>
+      <text>{{username}}</text>
+    </view>
+    <view style="display: flex;">
+      <view style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;padding: 2px 8px;align-items: center;">
+        <image style="width: 18px;height: 18px"  class="block size-20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Love_Heart_symbol_reflection.svg/2223px-Love_Heart_symbol_reflection.svg.png" />
+        <view style="margin-left: 5px;">{{numOfLikes}}</view>
+      </view>
+      <view style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;align-items: center; padding: 2px 8px">
+        <image  class="block size-20" src="https://cdn.pixabay.com/photo/2017/10/25/18/10/peer-review-icon-2888794__480.png" />
+        <view style="margin-left: 5px;">{{numOfReviewedOutfit}}</view>
+      </view>
+      <view style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;align-items: center; padding: 2px 8px">
+        <image  class="block size-20" src="https://cdn-icons-png.flaticon.com/512/1381/1381552.png" />
+        <view style="margin-left: 5px;">{{numOfComments}}</view>
+      </view>
+      <view onTap="onContact" style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;align-items: center; padding: 2px 8px">
+        <image  class="block size-20" src="https://cdn-icons-png.flaticon.com/512/4357/4357335.png" />
+        <view style="margin-left: 5px;">{{numOfComments}}</view>
+      </view>
+    </view>
+  </view>
+  <outfit-items current="{{0}}"" outfit="{{outfits}}"/>
+</view>
+  <modal
+    show="{{show}}"
+    onMaskClick="handleHideModal"
+    style="z-index:1 !important;"
+  >
+    <view slot="header">Nội dung liên hệ</view>
+    <form onSubmit="onSubmit"  style="margin: 10px">
+        <textarea name="content" style="width: 90%;height: 150px;"/>
+      <view style="display: flex;justify-content: flex-end;">
+        <button form-type="submit" style="width: 100%">Gửi</button>
+      </view>
+    </form>
+  </modal>

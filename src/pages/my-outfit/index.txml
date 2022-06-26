@@ -1,9 +1,35 @@
 <view tiki:if="{{isLoading}}">Loading...</view>
 <view tiki:else>
   <scroll-view scroll-y="{{true}}">
-    <view style="display: flex;margin: 5px 15px 0 15px;">
-      <button onTap="onUploadOutfit" style="border-radius: 10px;" type="outline">Post Outfit</button>
+    <view style="display: flex;margin-top: 20px;padding:10px;flex-direction: column;background-color: white;">
+      <view style="display: flex;align-items: center;margin-bottom: 10px;margin-top: 10px">
+        <image 
+        style="width: 60px;height: 50px;border-radius: 50%;margin-right: 10px;"
+        mode="aspectFill"
+        src="https://media-cdn-v2.laodong.vn/storage/newsportal/2021/3/19/890700/Rose-Blackpink-Sinh-.jpg"/>
+        <text style="width: 100%;border: 0; color: gray;font-weight: 600;">Outfit của riêng bạn?</text>
+      </view>
+    </view>
+    <view style="background-color: #f4f4f4;padding: 10px 5px;display: flex;align-items: center;justify-content: space-between;margin-top: 12px">
+      <view  onTap="onUploadOutfit" style="display: flex;align-items: center;background-color: white;padding: 8px 14px;border-radius: 10px">
+        <image style="width: 24px;height: 24px;margin-right: 5px;" src="https://icon-library.com/images/free-movies-icon/free-movies-icon-16.jpg"/>
+        <text style="font-weight: 600;font-size: 12px">Tạo outfit</text>
+      </view>
+      <view  onTap="onUploadOutfit" style="display: flex;align-items: center;background-color: white;padding: 8px 14px;border-radius: 10px">
+        <image style="width: 24px;height: 24px;margin-right: 5px;" src="https://icons-for-free.com/download-icon-reading-131964753179295908_512.png"/>
+        <text style="font-weight: 600;font-size: 12px">Review</text>
+      </view>
+      <view  onTap="onUploadOutfit" style="display: flex;align-items: center;background-color: white;padding: 8px 14px;border-radius: 10px">
+        <image style="width: 24px;height: 24px;margin-right: 5px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Circle-icons-image.svg/2048px-Circle-icons-image.svg.png"/>
+        <text style="font-weight: 600;font-size: 12px">Tạo album</text>
+      </view>
     </view>
     <outfit-items current="{{0}}"" outfit="{{outfit}}"/>
+    <view>
+      <view style="margin: 30px 80px">
+        <button  style="font-size: 15px;width: 100%;border-radius: 10px;" onTap="onSocial"> Fashion Social</button>
+      </view>
+      <image src="https://vietnix.vn/wp-content/uploads/2021/07/social-media-marketing-2-1024x667.png" style="width: 100%"/>
+    </view>
   </scroll-view>
 </view>

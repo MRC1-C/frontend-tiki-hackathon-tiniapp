@@ -43,6 +43,8 @@ Page({
       color: null,
     },
     selectedSort: null,
+    dataSearchImage: [],
+    isSearchImage: false
   },
 
   showFilter() {
@@ -54,20 +56,37 @@ Page({
     my.chooseImage({
       count: 1,
       success: (res) => {
-        const path = res.filePaths[0];
-        console.log(path);
-        my.uploadFile({
-          url: 'http://httpbin.org/post',
-          fileType: 'image/jpeg',
-          fileName: 'file',
-          filePath: path,
-          success: (res) => {
-            console.log(res);
-          },
-          fail: function (res) {
-            console.log(res);
-          }
+        let formData = new FormData();
+        // formData.append('type',type);
+        formData.append("upload_preset", "new_preset");
+        res.filePaths.forEach(element => {
+          my.uploadFile({
+            url: 'https://api.cloudinary.com/v1_1/mrcj/image/upload',
+            fileType: 'image/*',
+            fileName: 'file',
+            filePath: element,
+            formData: formData,
+            success: (res) => {
+              let response = JSON.parse(res)
+              my.request({
+                url: 'https://127.0.0.1:5000/ai-search',
+                method: 'POST',
+                data: {"uploaded_file": response.url},
+                success: (r) => {
+                  let data = []
+                  Object.keys(r.data).forEach(e=>data = [...data,...r.data[e]])
+                  this.setData({dataSearchImage: data,isSearchImage: true,searchTerm: "search image"})
+                }
+              });
+            },
+            fail: function (res) {
+              console.log(res);
+            }
+          });
         });
+      },
+      fail: (e) => {
+        console.log(e);
       }
     });
   },
@@ -118,6 +137,7 @@ Page({
         : { isLoading: true };
 
     this.setData({
+      isSearchImage: false,
       searchTerm,
       ...keys,
     });

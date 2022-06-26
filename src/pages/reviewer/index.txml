@@ -1,0 +1,11 @@
+<scroll-view>
+  <view tiki:for="{{reviewer}}">
+    <review-item 
+      id="{{item['_id']['$oid']}}" 
+      numOfComments="{{item['numOfComments']}}" 
+      numOfLikes="{{item['numOfLikes']}}" 
+      numOfReviewedOutfit="{{item['numOfReviewedOutfit']}}" 
+      outfitIdList="{{item['outfitIdList']}}" 
+      />
+  </view>
+</scroll-view>

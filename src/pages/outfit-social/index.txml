@@ -1,12 +1,4 @@
-<scroll-view scroll-y="{{true}}">
-  <!-- <view style="display: flex;margin: 5px 15px 0 15px;">
-    <button onTap="onUploadOutfit">+</button>
-    <image class="block size-40"  src="https://cdn-icons-png.flaticon.com/512/3616/3616929.png"/>
-    <image class="block size-40"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png"/>
-    <image class="block size-40"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/640px-User_icon_2.svg.png"/>
-  </view> -->
-  <outfit-items social="{{true}}" current="{{0}}"" outfit="{{outfit}}"/>
-  <outfit-items social="{{true}}" current="{{0}}"" outfit="{{outfit}}"/>
-  <outfit-items social="{{true}}" current="{{0}}"" outfit="{{outfit}}"/>
-  <outfit-items social="{{true}}" current="{{0}}"" outfit="{{outfit}}"/>
+<view tiki:if="{{isLoading}}">Loading ...</view>
+<scroll-view tiki:else scroll-y="{{true}}">
+  <outfit-social-items  tiki:for="{{outfits}}" current="{{0}}"" outfit="{{item}}"/>
 </scroll-view>

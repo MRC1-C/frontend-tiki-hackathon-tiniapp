@@ -21,7 +21,9 @@
     "pages/outfit-detail/index",
     "pages/upload-outfit/index",
     "pages/outfit-social/index",
-    "pages/fashion-review/index"
+    "pages/fashion-review/index",
+    "pages/options-upload/index",
+    "pages/reviewer/index"
   ],
   "tabBar": {
     "borderTopActiveColor": "#1A94FF",

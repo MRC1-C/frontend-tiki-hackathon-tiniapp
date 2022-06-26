@@ -128,14 +128,27 @@ Page({
 
   makePayment() {
     if(this.data.isGift){
-      my.request({
-        url: 'https://127.0.0.1:5000/serve-gift',
-        method: 'POST',
-        data: {...this.data.form,total: this.data.cart.total,items: this.data.cart.orderedProducts},
-        success: (response) => {
-          console.log(response)
+      let bind = this
+      my.getStorage({
+        key: 'access_token',
+        success: function (res) {
+          my.request({
+            url: 'https://127.0.0.1:5000/serve-gift',
+            method: 'POST',
+            headers: {
+              "Authorization": 'Bearer ' + res.data
+            },
+            data: {...bind.data.form,total: bind.data.cart.total,items: bind.data.cart.orderedProducts},
+            success: (response) => {
+              my.alert({ content: 'Tặng quà thành công' });
+            }
+          });
+        },
+        fail: function (res) {
+          my.alert({ content: res.errorMessage });
         }
       });
+
     }
     this.setData({
       modal: {

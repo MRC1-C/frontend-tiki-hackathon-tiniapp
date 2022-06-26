@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "My Outfit",
+  "defaultTitle": "Outfit của tôi",
   "usingComponents": {
     "outfit-items": "components/outfit-items/index"
   }

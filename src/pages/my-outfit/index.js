@@ -12,6 +12,9 @@ Page({
   onUploadOutfit(){
     my.navigateTo({url: 'pages/upload-outfit/index'})
   },
+  onSocial(){
+    my.navigateTo({url: 'pages/outfit-social/index'})
+  }, 
   //life circle
   async onShow() {
     let bind = this

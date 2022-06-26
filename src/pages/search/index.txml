@@ -22,7 +22,7 @@
     </view>
 
     <view tiki:if="{{searchTerm}}" class="py-medium mb-2x-small mt-4x-small">
-      <view class="px-medium mb-2x-small">
+      <view tiki:if="{{!isSearchImage}}" class="px-medium mb-2x-small">
         <view class="flex justify-between bg-white mb-small">
           <filter
             isShow="{{isShowFilter}}"
@@ -64,6 +64,19 @@
           onTapProduct="onTapProduct"
         />
       </view>
+      <view tiki:else >
+        <view style="font-size: 20px;font-weight: 600;margin: 0 15px 25px 15px">Có thể bạn quan tâm</view>
+        <view style="display: grid;
+        grid-template-columns: auto auto;gap: 10px;margin: 0 15px">
+          <view tiki:for="{{dataSearchImage}}" style="width: 100%;background-color: white;margin-bottom: 20px;">
+            <image src="{{item}}" style="width: 100%;" mode="aspectFill"/>
+            <view style="display: flex;flex-direction: column;">
+              <text>Name Product</text>
+              <text style="font-weight: 600;">12.000.000đ</text>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 
@@ -82,7 +95,7 @@
   </view>
 
   <view 
-    tiki:if="{{!searchTerm || !products.length}}"
+    tiki:if="{{!isSearchImage&&(!searchTerm || !products.length)}}"
     class="p-medium bg-white mb-2x-small">
     <view class="mb-small font-bold text-medium">{{!searchTerm ? 'Popular' : 'Similar'}} products</view>
     <product-section

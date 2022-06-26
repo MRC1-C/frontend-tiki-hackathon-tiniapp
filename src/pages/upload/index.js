@@ -1,7 +1,20 @@
 Page({
   data: {
-    imgs: {'top': [],'pullover': [],'outerwear': [],'bottom': [],'shoe': [],'bag': []},
-    keys: ["top", 'pullover','outerwear','bottom','shoe','bag'],
+    imgs: {'top': [],'pullover': [],'outerwear': [],'bottom': [],'shoe': [],'bag': [],'dress': []},
+    keys: ['top','bottom','shoe'],
+    selected2:  { key: 1, label: 'Outfit 1 (Top, Pllover, Outerwear)',keys: ['top','pullover','outerwear']},
+    items2: [
+      { key: 1, label: 'Outfit 1 (Top, Bottom, Shoe)', keys: ['top','bottom','shoe']},
+      { key: 2, label: 'Outfit 2 (Top, Bottom, Shoe, Bag)',keys: ['top','bottom','shoe','bag'] },
+      { key: 3, label: 'Outfit 3 (Outerwear, Bottom, Shoe, Bag)',keys: ['outerwear','bottom','shoe','bag'] },
+      { key: 4, label: 'Outfit 4 (Top, Dress, Shoe, Bag)',keys: ['top','dress','shoe','bag'] },
+    ],
+    isLoading: false,
+    dataDetail: []
+  },
+  onSelect2(selected2) {
+    // this.setData({keys: selected2.keys})
+    this.setData({ selected2,keys: selected2.keys });
   },
   onChooseImage(e) {
     my.chooseImage({
@@ -46,15 +59,22 @@ Page({
     })
   },
   onPost(){
+    this.setData({isLoading: true})
     my.request({
-      url: 'https://127.0.0.1:5000/create-outfit',
+      url: 'https://127.0.0.1:5000/suggest-outfit',
       method: 'POST',
-      headers: {
-        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1NTk0NjU2MSwianRpIjoiZGYyY2IyZjEtNzAyMC00NWVlLWI2ZjgtMTNkYjk4ZDJlMzAwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImxvbmcubHQiLCJuYmYiOjE2NTU5NDY1NjEsImV4cCI6MTY4NzQ4MjU2MX0.uIMrMgymKshKfpI8iXPln1ByRA63wUoffnhcYwBPiC8"
-      },
-      data: {'items': this.data.imgs, "desc": this.data.desc},
+      data: {'items': this.data.imgs},
       success: (response) => {
-        this.setData({desc: e.detail.value,imgs: {'top': [],'pullover': [],'outerwear': [],'bottom': [],'shoe': [],'bag': []}})
+        // my.navigateTo({ url: 'pages/my-outfit/index' });
+        this.setData({isLoading: false})
+        let data = []
+        response['outfit_suggestion_list'].forEach(e=>{
+          let dt = e.filter(el => el!=null)
+          console.log(dt)
+          data.push(dt)
+        })
+        this.setData({dataDetail: data,imgs: {'top': [],'pullover': [],'outerwear': [],'bottom': [],'shoe': [],'bag': [],'dress': []},})
+        
         // this.setData({outfit: response.data,isLoading: false})
       }
     });

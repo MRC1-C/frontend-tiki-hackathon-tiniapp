@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "outfit-items": "components/outfit-items/index",
+    "modal": "@tiki.vn/tini-ui/es/modal/index"
+  }
+}

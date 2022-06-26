@@ -10,5 +10,8 @@ Page({
   },
   onSearch(){
     my.navigateTo({ url: 'pages/search/index' });
+  },
+  onReview(){
+    my.navigateTo({ url: 'pages/reviewer/index' });
   }
 });

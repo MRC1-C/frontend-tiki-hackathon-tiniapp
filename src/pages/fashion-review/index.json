@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "My Outfit",
+  "defaultTitle": "Review outfit",
   "usingComponents": {
     "outfit-items": "components/outfit-items/index"
   }

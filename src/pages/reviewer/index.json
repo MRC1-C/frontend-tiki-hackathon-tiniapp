@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "Reviewer",
+  "usingComponents": {
+    "review-item": "components/review-item/index"
+  }
+}

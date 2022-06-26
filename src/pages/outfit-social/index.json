@@ -1,6 +1,6 @@
 {
   "defaultTitle": "Fashion social",
   "usingComponents": {
-    "outfit-items": "components/outfit-items/index"
+    "outfit-social-items": "components/outfit-social-items/index"
   }
 }

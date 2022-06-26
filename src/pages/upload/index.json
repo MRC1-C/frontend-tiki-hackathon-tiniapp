@@ -1,6 +1,7 @@
 {
   "defaultTitle": "Uploader",
   "usingComponents": {
-    "uploader": "@tiki.vn/tini-ui/es/uploader/index"
+    "uploader": "@tiki.vn/tini-ui/es/uploader/index",
+    "dropdown": "@tiki.vn/tini-ui/es/dropdown/index"
   }
 }

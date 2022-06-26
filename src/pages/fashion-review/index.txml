@@ -1,5 +1,41 @@
 <view style="margin: 15px;display: flex; flex-direction: column;">
-  <textarea style="width: 90%" onInput="onInput"/>
-    <button onTap="onPost" type="outline" style="margin-top: 10px;" >Post</button>
+  <view style="display: flex;margin-top: 20px;padding:10px;flex-direction: column;background-color: white;">
+    <view style="display: flex;margin-bottom: 10px;margin-top: 10px">
+      <image 
+      style="width:65px;height: 50px;border-radius: 50%;margin-right: 10px;"
+      mode="aspectFill"
+      src="https://media-cdn-v2.laodong.vn/storage/newsportal/2021/3/19/890700/Rose-Blackpink-Sinh-.jpg"/>
+      <textarea maxlength="{{1000}}" placeholder="Hãy viết đánh giá của bạn?" style="width: 100%;border: 0; color: gray;font-weight: 600;"></textarea>
+    </view>
+  </view>
+  <view style="background-color: #f4f4f4;padding: 10px 5px;display: flex;align-items: center;justify-content: space-between;margin-top: 12px">
+    <!-- <view  onTap="onPost" style="display: flex;align-items: center;background-color: white;padding: 8px 14px;border-radius: 10px">
+      <image style="width: 24px;height: 24px;margin-right: 5px;" src="https://icon-library.com/images/free-movies-icon/free-movies-icon-16.jpg"/>
+      <text style="font-weight: 600;font-size: 12px">Tạo outfit</text>
+    </view> -->
+    <view onTap="onPost" style="display: flex;align-items: center;background-color: white;padding: 8px 14px;border-radius: 10px">
+      <image style="width: 24px;height: 24px;margin-right: 5px;" src="https://icons-for-free.com/download-icon-reading-131964753179295908_512.png"/>
+      <text style="font-weight: 600;font-size: 12px">Post Review</text>
+    </view>
+    <!-- <view style="display: flex;align-items: center;background-color: white;padding: 8px 14px;border-radius: 10px">
+      <image style="width: 24px;height: 24px;margin-right: 5px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Circle-icons-image.svg/2048px-Circle-icons-image.svg.png"/>
+      <text style="font-weight: 600;font-size: 12px">Tạo album</text>
+    </view> -->
+  </view>
+  <!-- <textarea style="width: 90%" onInput="onInput"/>
+    <button onTap="onPost" type="outline" style="margin-top: 10px;" >Post</button> -->
 </view>
-<outfit-items current="{{0}}"" outfit="{{outfit}}"/>
+<view tiki:for="{{items}}" style="border: 0px solid lightgray;padding: 10px 0;background-color: white;margin-bottom: 10px;">
+  <image src="{{item.image}}"  style="width: 100%;height: 190px;border: 1px solid lightgray" class="w-full" mode="aspectFill"/>
+  <view style="padding: 10px 10px;">{{item["name"]}}</view>
+  <view style="display: flex;">
+    <view style="margin-right: 10px;border-radius: 5px;display: flex;border: 0px solid lightgray;padding: 2px 15px;align-items: center;">
+      <image  class="block size-20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Love_Heart_symbol_reflection.svg/2223px-Love_Heart_symbol_reflection.svg.png" />
+      <view style="margin-left: 5px;">{{item["likes"]}}</view>
+    </view>
+    <view style="margin-right: 10px;border-radius: 5px;display: flex;border: 0px solid lightgray;padding: 2px 15px;align-items: center;">
+      <image  class="block size-20" src="https://icon-library.com/images/price-icon-png/price-icon-png-9.jpg" />
+      <view style="margin-left: 5px;">{{item["price"]}}</view>
+    </view>
+  </view>
+</view>

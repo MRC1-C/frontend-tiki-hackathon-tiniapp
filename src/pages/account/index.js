@@ -102,7 +102,7 @@ Page({
       data: e.detail.value,
       success: (response) => {
         this.setData({isLogin: true});
-        this.handleHideModal1()
+        this.handleHideModal()
         my.setStorage({
           key: 'access_token',
           data: response['access_token']

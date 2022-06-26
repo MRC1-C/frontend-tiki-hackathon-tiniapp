@@ -193,9 +193,9 @@
         <input name="address" />
       </label>
     </view>
-    <view class="block buttons">
-      <button  type="outline" onTap="onCancel">Cancel</button>
-      <button form-type="submit">Submit</button>
+    <view style="display: flex;justify-content:center">
+      <button type="outline" onTap="onCancel" style="width: 100px; font-size: 14px; margin: 12px">Hủy</button>
+      <button form-type="submit" style="width: 100px; font-size: 14px; margin: 12px">Xác nhận</button>
     </view>
   </form>
 </scroll-view>
