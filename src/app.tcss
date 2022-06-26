@@ -19,6 +19,13 @@
   }
 }
 
+* {
+  font-family: "Comic Sans, Comic Sans MS" cursive;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-weight: 500;
+  line-height: 1.8;
+}
+
 .loading {
   width: 24px;
   height: 24px;

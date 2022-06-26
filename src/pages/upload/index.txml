@@ -35,7 +35,7 @@
     </view>
   </view>
   <view style="display: flex;justify-content: center;margin-bottom: 10px">
-    <button loading="{{isLoading}}" style="background-color: #1b6bff; border: 0; margin-bottom:20px; margin-top: 10px;border-radius: 10px;padding: 0 30px;font-size: 14px;font-weight: 600" onTap="onPost">Suggest Now</button>
+    <button loading="{{isLoading}}" style="background-color: #1b6bff; border: 0; margin-bottom:20px; margin-top: 10px;border-radius: 10px;padding: 0 30px;font-size: 14px;font-weight: 600" onTap="onPost">{{isLoading?`Chúng tôi đang tính toán ${numOfCases} trường hợp`:'Suggest Now'}}</button>
   </view>
   <view tiki:if="{{dataDetail.length > 0}}" style="display: flex;justify-content: center;">
     <text  style="font-weight: 600;font-size: 18px;">Suggest Outfit</text>

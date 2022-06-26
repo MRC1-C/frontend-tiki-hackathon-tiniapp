@@ -5,7 +5,7 @@
       style="width:65px;height: 50px;border-radius: 50%;margin-right: 10px;"
       mode="aspectFill"
       src="https://media-cdn-v2.laodong.vn/storage/newsportal/2021/3/19/890700/Rose-Blackpink-Sinh-.jpg"/>
-      <textarea maxlength="{{1000}}" placeholder="Hãy viết đánh giá của bạn?" style="width: 100%;border: 0; color: gray;font-weight: 600;"></textarea>
+      <textarea onInput="onInput" maxlength="{{1000}}" placeholder="Hãy viết đánh giá của bạn?" style="width: 100%;border: 0; color: gray;font-weight: 600;"></textarea>
     </view>
   </view>
   <view style="background-color: #f4f4f4;padding: 10px 5px;display: flex;align-items: center;justify-content: space-between;margin-top: 12px">

@@ -6,11 +6,13 @@ Page({
     items2: [
       { key: 1, label: 'Outfit 1 (Top, Bottom, Shoe)', keys: ['top','bottom','shoe']},
       { key: 2, label: 'Outfit 2 (Top, Bottom, Shoe, Bag)',keys: ['top','bottom','shoe','bag'] },
-      { key: 3, label: 'Outfit 3 (Outerwear, Bottom, Shoe, Bag)',keys: ['outerwear','bottom','shoe','bag'] },
+      { key: 3, label: 'Outfit 3 (Top ,Outerwear, Bottom, Shoe, Bag)',keys: ['top','outerwear','bottom','shoe','bag'] },
       { key: 4, label: 'Outfit 4 (Top, Dress, Shoe, Bag)',keys: ['top','dress','shoe','bag'] },
+      { key: 5, label: 'Outfit 5 (Dress, Shoe, Bag)',keys: ['dress','shoe','bag'] },
     ],
     isLoading: false,
-    dataDetail: []
+    dataDetail: [],
+    numOfCases: 1,
   },
   onSelect2(selected2) {
     // this.setData({keys: selected2.keys})
@@ -59,11 +61,18 @@ Page({
     })
   },
   onPost(){
-    this.setData({isLoading: true})
+    let num = 1
+    Object.keys(this.data.imgs).forEach(e=>{
+      if(this.data.imgs[e].length > 0)
+        num = num * this.data.imgs[e].length
+    })
+    
+    this.setData({isLoading: true,numOfCases: num})
     my.request({
       url: 'https://127.0.0.1:5000/suggest-outfit',
       method: 'POST',
       data: {'items': this.data.imgs},
+      timeout: 300000,
       success: (response) => {
         // my.navigateTo({ url: 'pages/my-outfit/index' });
         this.setData({isLoading: false})

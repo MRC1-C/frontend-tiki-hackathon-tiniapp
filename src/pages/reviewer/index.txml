@@ -6,6 +6,7 @@
       numOfLikes="{{item['numOfLikes']}}" 
       numOfReviewedOutfit="{{item['numOfReviewedOutfit']}}" 
       outfitIdList="{{item['outfitIdList']}}" 
+      reviewContent="{{item['reviewContent']}}"
       />
   </view>
 </scroll-view>

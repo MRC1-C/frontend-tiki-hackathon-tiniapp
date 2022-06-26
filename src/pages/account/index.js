@@ -85,12 +85,8 @@ Page({
       method: 'POST',
       data: e.detail.value,
       success: (response) => {
-        this.setData({isLogin: true});
+        this.setData({isLogin: true,show: true});
         this.handleHideModal1()
-        my.setStorage({
-          key: 'access_token',
-          data: response['access_token']
-        });
       }
     });
   },
@@ -101,7 +97,7 @@ Page({
       method: 'POST',
       data: e.detail.value,
       success: (response) => {
-        this.setData({isLogin: true});
+        this.setData({isLogin: true,username: e.detail.value.username});
         this.handleHideModal()
         my.setStorage({
           key: 'access_token',

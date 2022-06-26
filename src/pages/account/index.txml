@@ -26,7 +26,7 @@
         mode="aspectFill"
         src="https://media-cdn-v2.laodong.vn/storage/newsportal/2021/3/19/890700/Rose-Blackpink-Sinh-.jpg"/>
         <view class="mt-2x-small text-medium-2x-small font-bold" style="display: flex;align-items: center;flex-direction: column" >
-          <text>Rose</text>
+          <text>{{username}}</text>
           <button type="outline" onTap="onSignout">Đăng xuất</button>
         </view>
       </view>

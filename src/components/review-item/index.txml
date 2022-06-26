@@ -9,11 +9,11 @@
     </view>
     <view style="display: flex;">
       <view style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;padding: 2px 8px;align-items: center;">
-        <image style="width: 18px;height: 18px"  class="block size-20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Love_Heart_symbol_reflection.svg/2223px-Love_Heart_symbol_reflection.svg.png" />
+        <image style="width: 30px;height: 30px"  class="block size-20" src="https://i.pinimg.com/originals/86/d0/4c/86d04c0c89f9dcf42f29999936b5527c.png" />
         <view style="margin-left: 5px;">{{numOfLikes}}</view>
       </view>
       <view style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;align-items: center; padding: 2px 8px">
-        <image  class="block size-20" src="https://cdn.pixabay.com/photo/2017/10/25/18/10/peer-review-icon-2888794__480.png" />
+        <image  class="block size-20" src="https://cdn4.iconfinder.com/data/icons/superusercloth-kids/512/denim_dress-512.png" />
         <view style="margin-left: 5px;">{{numOfReviewedOutfit}}</view>
       </view>
       <view style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;align-items: center; padding: 2px 8px">
@@ -22,11 +22,11 @@
       </view>
       <view onTap="onContact" style="margin-right: 5px;border-radius: 5px;display: flex;border: 0px solid lightgray;align-items: center; padding: 2px 8px">
         <image  class="block size-20" src="https://cdn-icons-png.flaticon.com/512/4357/4357335.png" />
-        <view style="margin-left: 5px;">{{numOfComments}}</view>
+        <view style="margin-left: 5px;">{{numOfConnections}}</view>
       </view>
     </view>
   </view>
-  <outfit-items current="{{0}}"" outfit="{{outfits}}"/>
+  <outfit-items review username="{{username}}" current="{{0}}"" outfit="{{outfits}}"/>
 </view>
   <modal
     show="{{show}}"
@@ -35,7 +35,7 @@
   >
     <view slot="header">Nội dung liên hệ</view>
     <form onSubmit="onSubmit"  style="margin: 10px">
-        <textarea name="content" style="width: 90%;height: 150px;"/>
+        <textarea name="content" show-count="{{false}}" maxlength="{{1000}}" style="width: 90%;height: 150px;"/>
       <view style="display: flex;justify-content: flex-end;">
         <button form-type="submit" style="width: 100%">Gửi</button>
       </view>

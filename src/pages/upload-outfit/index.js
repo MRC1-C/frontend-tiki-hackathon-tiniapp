@@ -1,7 +1,7 @@
 Page({
   data: {
-    imgs: {'top': [],'pullover': [],'outerwear': [],'bottom': [],'shoe': [],'bag': []},
-    keys: ["top", 'pullover','outerwear','bottom','shoe','bag'],
+    imgs: {'top': [],'pullover': [],'outerwear': [],'bottom': [],'shoe': [],'bag': [], 'dress': []},
+    keys: ["top", 'pullover','outerwear','bottom','shoe','bag','dress'],
     desc: ""
   },
   onChooseImage(e) {

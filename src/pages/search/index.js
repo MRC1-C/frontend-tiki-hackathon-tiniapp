@@ -44,7 +44,8 @@ Page({
     },
     selectedSort: null,
     dataSearchImage: [],
-    isSearchImage: false
+    isSearchImage: false,
+    isLoadingImage: false
   },
 
   showFilter() {
@@ -59,6 +60,7 @@ Page({
         let formData = new FormData();
         // formData.append('type',type);
         formData.append("upload_preset", "new_preset");
+        this.setData({isLoadingImage: true,isSearchImage: true,searchTerm: "search image"})
         res.filePaths.forEach(element => {
           my.uploadFile({
             url: 'https://api.cloudinary.com/v1_1/mrcj/image/upload',
@@ -75,7 +77,7 @@ Page({
                 success: (r) => {
                   let data = []
                   Object.keys(r.data).forEach(e=>data = [...data,...r.data[e]])
-                  this.setData({dataSearchImage: data,isSearchImage: true,searchTerm: "search image"})
+                  this.setData({dataSearchImage: data,isLoadingImage: false})
                 }
               });
             },

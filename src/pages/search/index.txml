@@ -66,7 +66,10 @@
       </view>
       <view tiki:else >
         <view style="font-size: 20px;font-weight: 600;margin: 0 15px 25px 15px">Có thể bạn quan tâm</view>
-        <view style="display: grid;
+        <view tiki:if="{{isLoadingImage}}" style="height: 600px;display:flex;justify-content: center;">
+          <button loading="{{true}}" type="outline" style="border: 0;margin-top: 200px;">Chúng tôi đang tìm kiếm bằng AI</button>  
+        </view>
+        <view tiki:else style="display: grid;
         grid-template-columns: auto auto;gap: 10px;margin: 0 15px">
           <view tiki:for="{{dataSearchImage}}" style="width: 100%;background-color: white;margin-bottom: 20px;">
             <image src="{{item}}" style="width: 100%;" mode="aspectFill"/>

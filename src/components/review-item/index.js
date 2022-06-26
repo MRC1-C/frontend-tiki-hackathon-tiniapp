@@ -4,10 +4,12 @@ Component({
     username: "",
     email: '',
     outfits: [],
-    show: false
+    show: false,
+    numOfConnections: 0
   },
 	props: {
     id: "62b3bd405cdb696246acdbe4",
+    reviewContent: [],
     numOfComments: 0,
     numOfLikes: 3,
     numOfReviewedOutfit: 4,
@@ -31,18 +33,19 @@ Component({
         url: `https://127.0.0.1:5000/get-user-by-id?userId=${this.props.id}`,
         method: 'GET',
         success: (response) => {
-          this.setData({username: response.data.username,email: response.data.email})
+          this.setData({username: response.data.username,email: response.data.email,numOfConnections: response.data.numOfConnections})
           if(response.data.username.length %2==0){
             this.setData({imgs: 'https://image.thanhnien.vn/1200x630/Uploaded/2022/zxaijr/2021_03_16/rosealbumkyluc1_lgic.png'})
           }
         }
       });
-      this.props.outfitIdList.forEach(element => {
+      this.props.outfitIdList.forEach((element,index) => {
         my.request({
           url: `https://127.0.0.1:5000/get-outfit?outfit_id=${element['$oid']}`,
           method: 'GET',
           success: (response) => {
-            this.setData({outfits: [...this.data.outfits,response.data]})
+            console.log(response)
+            this.setData({outfits: [...this.data.outfits,{...response.data,'reviewContent': this.props.reviewContent[index]}]})
           }
         });
       });
@@ -59,6 +62,7 @@ Component({
       my.getStorage({
         key: 'access_token',
         success: function (res) {
+          bind.setData({show: false})
       my.request({
         url: 'https://127.0.0.1:5000/contact-reviewer',
         method: 'POST',
@@ -70,7 +74,7 @@ Component({
           content: e.detail.value.content
         },
         success: (response) => {
-          bind.setData({show: false})
+          bind.setData({numOfConnections: bind.data.numOfConnections+1})
         }
       });
         },
