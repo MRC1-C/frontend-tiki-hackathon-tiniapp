@@ -32,7 +32,12 @@ Khuyên dùng cho các đối tác đã có sẵn hệ thống e-commerce và mu
 - Thanh toán (mock)
 - Danh sách orders
 - Thông tin account
-
+- Hôm nay mặc gì
+- Tặng quà cho người thân hoặc bạn bè
+- Tím kiếm bằng hình ảnh 
+- Khai phá giỏ hàng
+- Lịch sử mua hàng
+- Mạng xã hội chia sẻ các bộ đồ của bạn
 <br/>
 
 ## Hướng dẫn cài đặt
