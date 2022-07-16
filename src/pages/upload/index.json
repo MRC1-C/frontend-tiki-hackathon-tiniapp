@@ -1,7 +1,8 @@
 {
-  "defaultTitle": "Uploader",
+  "defaultTitle": "Hôm nay mặc gì",
   "usingComponents": {
     "uploader": "@tiki.vn/tini-ui/es/uploader/index",
-    "dropdown": "@tiki.vn/tini-ui/es/dropdown/index"
+    "dropdown": "@tiki.vn/tini-ui/es/dropdown/index",
+    "modal": "@tiki.vn/tini-ui/es/modal/index"
   }
 }

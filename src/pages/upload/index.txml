@@ -1,5 +1,5 @@
-<view style="margin: 10px 0px;">
-  <view style="background-color: white;margin-bottom: 10px;font-weight: 600">
+<view tiki:if="{{!isResult}}" style="background-color: white;padding-left: 20px;padding-right: 20px;padding-top: 10px">
+  <view style="background-color: white;margin-bottom: 10px;font-weight: 600;">
     <dropdown
       bottomSheetHeight="200"
       bottomSheetTitle="Custom"
@@ -18,36 +18,64 @@
       </button> -->
       <view style="font-size: 14px;font-weight: 600">{{item.toUpperCase()}} </view>
     </view>
-    <view tiki:if="{{imgs[item].length == 0}}" style="width: 100%;height: 200px;margin-bottom: 10px;">
-      <button data-view-name="{{item}}" onTap="onChooseImage" style=" opacity: 1; background-position: center;background-image: url('https://i.pinimg.com/736x/39/12/11/3912111feb551097f370bd383fae725f.jpg');background-color: rgb(247, 239, 217);width: 100%;height: 100%;border-radius: 10px;border: 0px solid lightgray" type="ghost">
-        <icon type="plus" color="#1b6bff" size="60"/>
+    <view tiki:if="{{imgs[item].length == 0}}" style="width: 100%;height: 200px;margin-bottom: 0px;">
+      <button data-view-name="{{item}}" onTap="onChooseImage" style="box-shadow: 2px 0px 22px 5px rgba(0, 0, 0, 0.05);;background-position: center;;background-color: white;width: 100%;height: 100%;border-radius: 30px;border: 0px solid lightgray" type="ghost">
+          <icon type="plus" color="#27272A" size="30" style="border: 1px solid black;width: 30px;margin: 0 auto;border-radius: 50px;background-color: #6BBAFF;border: 0px"/>
       </button>
     </view>
-    <view tiki:else style="width: 100%;height: 200px;position: relative;margin-bottom: 10px">
-      <button data-view-name="{{item}}" onTap="onClearUpload" style="position: absolute;right: 2px;top: 2px;border-radius:50%;width: 30px,height: 30px;padding:0;height: 25px;width: 25px;z-index: 3"><icon color="white" size="18" type="close"/></button>
+    <view tiki:else style="width: 100%;height: 200px;position: relative;margin-bottom: 0px">
+      <button data-view-name="{{item}}" onTap="onClearUpload" style="position: absolute;right: -5px;top: -5px;border-radius:50%;width: 30px,height: 30px;padding:0;height: 25px;width: 25px;z-index: 3"><icon color="white" size="18" type="close"/></button>
       <carousel
         arrows
       >
         <carousel-item tiki:for="{{imgs[item]}}">
-          <image  style="width: 100%;height: 190px" class="w-full" mode="aspectFill" src="{{item}}" />
+          <image  style="width: 100%;height: 190px;border-radius: 30px;" class="w-full" mode="aspectFill" src="{{item}}" />
         </carousel-item>
       </carousel>
     </view>
   </view>
   <view style="display: flex;justify-content: center;margin-bottom: 10px">
-    <button loading="{{isLoading}}" style="background-color: #1b6bff; border: 0; margin-bottom:20px; margin-top: 10px;border-radius: 10px;padding: 0 30px;font-size: 14px;font-weight: 600" onTap="onPost">{{isLoading?`Chúng tôi đang tính toán ${numOfCases} trường hợp`:'Suggest Now'}}</button>
+    <button onTap="handleShowModal" style="background-color: #1b6bff; border: 0; margin-bottom:20px; margin-top: 10px;border-radius: 10px;padding: 0 30px;font-size: 14px;font-weight: 500">Gợi ý ngay</button>
   </view>
-  <view tiki:if="{{dataDetail.length > 0}}" style="display: flex;justify-content: center;">
-    <text  style="font-weight: 600;font-size: 18px;">Suggest Outfit</text>
-  </view>
-   <carousel
-      arrows
-      style='margin-top: 20px;'
-    >
-    <carousel-item tiki:for="{{dataDetail}}">
-      <view tiki:for="{{item}}" >
-        <image  style="width: 100%;height: 250px;" mode="aspectFit" src="{{item}}" />
-      </view>
-    </carousel-item>
-    </carousel>
 </view>
+<view tiki:else style="background-color: white;padding-left: 20px;padding-right: 20px;padding-top: 10px;margin: 0 auto">
+  <text style="font-size: 16px;font-weight: 600;display: flex;justify-content: center;">Outfit bạn có thể thích</text>
+  <carousel
+     arrows
+     onChange="onChange"
+   >
+   <carousel-item tiki:for="{{dataDetail}}">
+     <view tiki:for="{{item}}" >
+       <image  style="width: 100%;height: 250px;" mode="aspectFit" src="{{item}}" />
+     </view>
+   </carousel-item>
+   </carousel>
+   <view style="display: flex;justify-content: center;margin-bottom: 10px;margin-top:20px">
+     <button onTap="handleSave" style="border-radius: 30px;padding: 0 20px">Lưu vào tủ đổ của bạn</button>
+   </view>
+
+</view>
+<modal
+  show="{{show}}"
+>
+<view tiki:if="{{isLoading}}">
+  <button loading="{{true}}" type="outline" style="border: 0;font-size: 17px;font-weight: 600;">{{`Đang tính toán ${numOfCases} trường hợp...`}}</button>
+</view>
+<view tiki:else>
+  <view style="display: flex;flex-direction: column;justify-content: center;align-items: center">
+    <image style="width: 206px;height: 206px;" mode="aspectFit" src="http://res.cloudinary.com/mrcj/image/upload/v1657986908/m95yswokrwcz3oh2yv8b.png"/>
+    <text style="color: #1A94FF;margin-bottom: 30px;font-weight: 600">Đã hoàn thành</text>
+    <button onTap="handleResult" style="border-radius: 30px;font-size: 17px;font-weight: 600;padding: 0 20px">Xem kết quả</button>
+  </view>
+</view>
+</modal>
+<modal
+show="{{showSave}}"
+>
+<view style="display: flex;flex-direction: column;justify-content: center;align-items: center">
+  <image style="width: 206px;height: 206px;" mode="aspectFit" src="http://res.cloudinary.com/mrcj/image/upload/v1657987880/ucw6s74i1edatycdxttx.png"/>
+  <text style="color: #1A94FF;margin-bottom: 30px;margin-top: 30px;font-weight: 600">Đã lưu vào tủ đồ của bạn</text>
+  <button style="border-radius: 30px;font-size: 17px;font-weight: 600;padding: 0 20px" onTap='handleOutfit'>Outfit của tôi</button>
+  <button type='outline' style="border:0;border-radius: 30px;font-size: 17px;font-weight: 600;padding: 0 20px" onTap='handleHideModalSave'>Đóng</button>
+</view>
+</modal>
