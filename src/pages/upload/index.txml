@@ -12,30 +12,44 @@
       >
     </dropdown>
   </view>
-  <view tiki:for="{{keys}}" style="background-color: white;padding: 2px 0px; margin-bottom: 24px">
-    <view style="display: flex;justify-content: center; margin: 8px 0">
-      <!-- <button data-view-name="{{item}}" onTap="onChooseImage">Choose image {{item}} 
-      </button> -->
-      <view style="font-size: 14px;font-weight: 600">{{item.toUpperCase()}} </view>
+  <view tiki:if='{{isSelect}}' style="height: 100vh;background-color: white">
+    <view  style="display: flex;flex-wrap: wrap;">
+      <view  tiki:for='{{type}}' style="width: 45%;position: relative;margin: 8px">
+        <button tiki:if='{{select.includes(item)}}' style="position: absolute;right: 5px;bottom: 10px;border-radius:50%;width: 20px;height: 20px;padding:0;z-index: 3"><icon color="white" size="15" type="checked_mark"/></button>
+        <button data-view-name="{{item}}" onTap="handleSelect" style="box-shadow: 2px 0px 22px 5px rgba(0, 0, 0, 0.05);;background-position: center;;background-color: {{select.includes(item)?'rgba(217, 217, 217, 0.5)':'white'}} ;width: 100%;height: 100px;border-radius: 30px;border: 0px solid lightgray;color: black;">{{item.toUpperCase()}} </button>
+      </view>
     </view>
-    <view tiki:if="{{imgs[item].length == 0}}" style="width: 100%;height: 200px;margin-bottom: 0px;">
-      <button data-view-name="{{item}}" onTap="onChooseImage" style="box-shadow: 2px 0px 22px 5px rgba(0, 0, 0, 0.05);;background-position: center;;background-color: white;width: 100%;height: 100%;border-radius: 30px;border: 0px solid lightgray" type="ghost">
-          <icon type="plus" color="#27272A" size="30" style="border: 1px solid black;width: 30px;margin: 0 auto;border-radius: 50px;background-color: #6BBAFF;border: 0px"/>
-      </button>
-    </view>
-    <view tiki:else style="width: 100%;height: 200px;position: relative;margin-bottom: 0px">
-      <button data-view-name="{{item}}" onTap="onClearUpload" style="position: absolute;right: -5px;top: -5px;border-radius:50%;width: 30px,height: 30px;padding:0;height: 25px;width: 25px;z-index: 3"><icon color="white" size="18" type="close"/></button>
-      <carousel
-        arrows
-      >
-        <carousel-item tiki:for="{{imgs[item]}}">
-          <image  style="width: 100%;height: 190px;border-radius: 30px;" class="w-full" mode="aspectFill" src="{{item}}" />
-        </carousel-item>
-      </carousel>
+    <view style="display: flex;flex-direction: column;align-items: center;">
+      <input onInput="onInput" placeholder="Đặt tên cho bộ thiết kế " style="width: 100%;border-radius: 10px;margin: 20px 0"></input>
+      <button onTap='handleOK' style="width: 50%;border-radius: 10px;">Xác nhận</button>
     </view>
   </view>
-  <view style="display: flex;justify-content: center;margin-bottom: 10px">
-    <button onTap="handleShowModal" style="background-color: #1b6bff; border: 0; margin-bottom:20px; margin-top: 10px;border-radius: 10px;padding: 0 30px;font-size: 14px;font-weight: 500">Gợi ý ngay</button>
+  <view tiki:else>
+    <view  tiki:for="{{keys}}" style="background-color: white;padding: 2px 0px; margin-bottom: 24px">
+      <view style="display: flex;justify-content: center; margin: 8px 0">
+        <!-- <button data-view-name="{{item}}" onTap="onChooseImage">Choose image {{item}} 
+        </button> -->
+        <view style="font-size: 14px;font-weight: 600">{{item.toUpperCase()}} </view>
+      </view>
+      <view tiki:if="{{imgs[item].length == 0}}" style="width: 100%;height: 200px;margin-bottom: 0px;">
+        <button data-view-name="{{item}}" onTap="onChooseImage" style="box-shadow: 2px 0px 22px 5px rgba(0, 0, 0, 0.05);;background-position: center;;background-color: white;width: 100%;height: 100%;border-radius: 30px;border: 0px solid lightgray" type="ghost">
+            <icon type="plus" color="#27272A" size="30" style="border: 1px solid black;width: 30px;margin: 0 auto;border-radius: 50px;background-color: #6BBAFF;border: 0px"/>
+        </button>
+      </view>
+      <view tiki:else style="width: 100%;height: 200px;position: relative;margin-bottom: 0px">
+        <button data-view-name="{{item}}" onTap="onClearUpload" style="position: absolute;right: -5px;top: -5px;border-radius:50%;width: 30px,height: 30px;padding:0;height: 25px;width: 25px;z-index: 3"><icon color="white" size="18" type="close"/></button>
+        <carousel
+          arrows
+        >
+          <carousel-item tiki:for="{{imgs[item]}}">
+            <image  style="width: 100%;height: 190px;border-radius: 30px;" class="w-full" mode="aspectFill" src="{{item}}" />
+          </carousel-item>
+        </carousel>
+      </view>
+    </view>
+    <view style="display: flex;justify-content: center;margin-bottom: 10px">
+      <button onTap="handleShowModal" style="background-color: #1b6bff; border: 0; margin-bottom:20px; margin-top: 10px;border-radius: 10px;padding: 0 30px;font-size: 14px;font-weight: 500">Gợi ý ngay</button>
+    </view>
   </view>
 </view>
 <view tiki:else style="background-color: white;padding-left: 20px;padding-right: 20px;padding-top: 10px;margin: 0 auto">

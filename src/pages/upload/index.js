@@ -9,6 +9,7 @@ Page({
       { key: 3, label: 'Outfit 3 (Top ,Outerwear, Bottom, Shoe, Bag)',keys: ['top','outerwear','bottom','shoe','bag'] },
       { key: 4, label: 'Outfit 4 (Top, Dress, Shoe, Bag)',keys: ['top','dress','shoe','bag'] },
       { key: 5, label: 'Outfit 5 (Dress, Shoe, Bag)',keys: ['dress','shoe','bag'] },
+      { key: 6, label: 'Outfit 6 Thiết kế bộ độ cho riêng bạn' ,keys: [] },
     ],
     isLoading: true,
     dataDetail: [],
@@ -17,12 +18,39 @@ Page({
     isResult: false,
     showSave: false,
     current: 0,
+    isSelect: false,
+    type: ['top','bottom','shoe','bag','outerwear','pullover','dress'],
+    select: [],
+    input: ''
   },
   onChange(e) {
-    console.log('onChange: ', e.detail.current);
     this.setData({
       current: e.detail.current
     })
+  },
+  onInput(e){
+    this.setData({input: e.detail.value })
+  },
+  handleOK(){
+    let data = {...this.data.selected2}
+    data.label = 'Outfit 6 ' + this.data.input
+    this.setData({selected2: data,keys: this.data.select,isSelect: false})
+  },
+  handleSelect(e){
+    if(!this.data.select.includes(e.target.dataset['view-name'])){
+      let data = [...this.data.select]
+      data.push(e.target.dataset['view-name'])
+      this.setData({
+        select: data
+      })
+    }
+    else{
+      let data = [...this.data.select]
+      data = data.filter(f=> f!==e.target.dataset['view-name'])
+      this.setData({
+        select: data
+      })
+    }
   },
   handleShowModal() {
     let num = 1
@@ -80,8 +108,11 @@ Page({
     this.setData({ isResult: true });
   },
   onSelect2(selected2) {
-    // this.setData({keys: selected2.keys})
+    if(selected2.key !==6)
     this.setData({ selected2,keys: selected2.keys });
+    else{
+      this.setData({ isSelect: true });
+    }
   },
   onChooseImage(e) {
     my.chooseImage({
@@ -137,7 +168,6 @@ Page({
         let data = []
         response['outfit_suggestion_list'].forEach(e=>{
           let dt = e.filter(el => el!=null)
-          console.log(dt)
           data.push(dt)
         })
         this.setData({dataDetail: data,imgs: {'top': [],'pullover': [],'outerwear': [],'bottom': [],'shoe': [],'bag': [],'dress': []},})
